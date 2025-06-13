@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  padding: 10px 20px;
+  color: white;
+}
+
+header img {
+  height: 40px;
+}
+
+nav a {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+  background: #444;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.entry-form,
+.filters,
+.totals {
+  margin-bottom: 15px;
+}
+
+input,
+select,
+button {
+  margin: 5px;
+  padding: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+  
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+td[contenteditable="true"] {
+  background-color: #f9f9f9;
+}
