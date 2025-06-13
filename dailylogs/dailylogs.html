@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daily Logs</title>
+  <link rel="stylesheet" href="dailylogs.css" />
+</head>
+<body>
+  <header>
+    <img src="ghost.jfif" alt="Logo" />
+    <nav>
+      <a href="https://dashproduction.x10.mx/masterfile/ghostfamily/dashboard.html">Dashboard</a>
+     
+      <a href="https://dashproduction.x10.mx/masterfile/ghostfamily/pk.html">PK Schedules</a>
+      <a href="https://dashproduction.x10.mx/masterfile/ghostfamily/vault.html">Vault</a>
+      <a href="https://dashproduction.x10.mx/masterfile/ghostfamily/tools.html">Tools</a>
+      <a href="https://dashproduction.x10.mx/masterfile/ghostfamily/event.html">Events</a>
+      <a href="https://dashproduction.x10.mx/masterfile/ghostfamily/status/status.html">STATUS</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="entry-form">
+      <input type="date" id="logDate" />
+      <input type="text" id="squad" placeholder="Squad" />
+      <input type="number" id="joined" placeholder="Joined Today" />
+      <input type="number" id="left" placeholder="Left Today" />
+      <input type="number" id="lives" placeholder="# of Lives" />
+      <input type="number" id="solid" placeholder="# of New Solid" />
+      <button onclick="addLog()">Enter</button>
+    </div>
+
+    <div class="filters">
+      <label>Filter by Squad: <input type="text" id="filterSquad" oninput="filterTable()" /></label>
+      <label>Filter by Date: <input type="date" id="filterDate" oninput="filterTable()" /></label>
+    </div>
+
+    <div class="totals">
+      <strong>Total Joined Today:</strong> <span id="totalJoined">0</span> |
+      <strong>Total New Solid:</strong> <span id="totalSolid">0</span>
+    </div>
+
+    <table id="logsTable">
+      <thead>
+        <tr>
+          <th>DATE</th>
+          <th>SQUAD</th>
+          <th>JOINED TODAY</th>
+          <th>LEFT TODAY</th>
+          <th># OF LIVES</th>
+          <th># OF NEW SOLID</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="dailylogs.js"></script>
+</body>
+</html>
