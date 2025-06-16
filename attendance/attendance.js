@@ -18,16 +18,24 @@ document.getElementById("attendanceForm").addEventListener("submit", function (e
         },
         body: JSON.stringify(data)
     })
-        .then(res => res.json())
-        .then(response => {
-            if (response.success) {
-                addToTable(response.saved); // show saved data with date/time
-                window.location.href = "https://www.tiktok.com/@jnnrcelestial/live";
-            } else {
-                alert("Failed to save attendance: " + response.message);
-            }
-        })
-        .catch(err => console.error("Error:", err));
+    .then(res => res.json())
+    .then(response => {
+        if (response.success) {
+            addToTable(response.saved); // Add to table
+            alert("Attendance saved successfully! Redirecting...");
+
+            // Delay before redirect to allow alert and table update
+            setTimeout(() => {
+                window.location.href = "https://vt.tiktok.com/ZSkVUjvE4/"; // Your shortened TikTok live link
+            }, 1000);
+        } else {
+            alert("Failed to save attendance: " + (response.message || "Unknown error."));
+        }
+    })
+    .catch(err => {
+        console.error("Error:", err);
+        alert("An error occurred while saving attendance.");
+    });
 });
 
 function addToTable(entry) {
@@ -46,5 +54,8 @@ window.onload = function () {
         .then(res => res.json())
         .then(data => {
             data.reverse().forEach(addToTable);
+        })
+        .catch(err => {
+            console.error("Failed to load attendance data:", err);
         });
 };
