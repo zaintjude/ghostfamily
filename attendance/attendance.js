@@ -14,8 +14,10 @@ window.onload = function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const firstName = document.getElementById("firstName").value.trim();
-        const lastName = document.getElementById("lastName").value.trim();
+        const firstNameInput = document.getElementById("firstName");
+        const lastNameInput = document.getElementById("lastName");
+        const firstName = firstNameInput.value.trim();
+        const lastName = lastNameInput.value.trim();
 
         if (!firstName || !lastName) {
             alert("Please enter both First Name and Last Name.");
@@ -32,7 +34,7 @@ window.onload = function () {
             body: JSON.stringify(data)
         })
             .then(res => {
-                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
                 return res.json();
             })
             .then(response => {
@@ -40,9 +42,15 @@ window.onload = function () {
                     addToTable(response.saved);
                     alert("Attendance saved successfully! Redirecting to TikTok Live...");
 
+                    // Clear input fields after saving
+                    firstNameInput.value = "";
+                    lastNameInput.value = "";
+
+                    // Redirect after 1 second
                     setTimeout(() => {
-                        // Redirect to TikTok live after 1 second
-                        window.location.href = "https://www.tiktok.com/@jnnrcelestial/live?enter_from_merge=pc_share&enter_method=pc_share&is_from_webapp=1&sender_device=pc";
+                        // Use a shortened TikTok link or your preferred full link
+                        window.location.href = "https://vt.tiktok.com/ZSkVUjvE4/";
+                        // OR open in new tab: window.open("https://vt.tiktok.com/ZSkVUjvE4/", "_blank");
                     }, 1000);
                 } else {
                     alert("Failed to save attendance: " + (response.message || "Invalid response."));
@@ -50,7 +58,7 @@ window.onload = function () {
             })
             .catch(err => {
                 console.error("Submission error:", err);
-                alert("An error occurred. Please try again.");
+                alert("An error occurred while saving attendance.");
             });
     });
 };
