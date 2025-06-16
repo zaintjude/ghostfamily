@@ -42,7 +42,7 @@ window.onload = function () {
 
                     setTimeout(() => {
                         // Redirect to TikTok live after 1 second
-                        window.location.href = "https://www.tiktok.com/@jnnrcelestial/live?_r=1&_svg=1&checksum=f5c5c766d00b43625a980020a548bc74a9856fdc3494797b871fcb7bacf42f80&enter_from_merge=share&enter_method=share&sec_user_id=MS4wLjABAAAANbHrLygMLbQNEb2cy6WlzLnexICGfQ39IWSp0XyhtSp3fqhqL9L28N_SMUpPKof6&share_app_id=1180&share_from_user_id=6589393082944864258&share_link_id=a2fdc67b-e2e6-44c1-8278-7396579b9761&social_share_type=10&source=h5_t&timestamp=1750075428&ug_btm=b5836%2Cb4180&ugbiz_name=LIVE&user_id=6589393082944864258&utm_campaign=client_share&utm_medium=android&utm_source=copy";
+                        window.location.href = "https://www.tiktok.com/@jnnrcelestial/live?enter_from_merge=pc_share&enter_method=pc_share&is_from_webapp=1&sender_device=pc";
                     }, 1000);
                 } else {
                     alert("Failed to save attendance: " + (response.message || "Invalid response."));
